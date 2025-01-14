@@ -33,11 +33,13 @@ Follow these instructions to set up the project locally.
 
 2. **Set Up Environment Variables:**
    Create a .env file in the project root with the following content:
-   ```DATABASE_URL=postgresql://postgres:postgres@db:5432/todo_db
+   ```
+   DATABASE_URL=postgresql://postgres:postgres@db:5432/todo_db
    ```
 
 3. **Run the Applicationn with Docker Compose:**
-   ```docker-compose up --build
+   ```
+   docker-compose up --build
    ```
 
 4. **Access the API:**
