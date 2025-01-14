@@ -12,6 +12,16 @@ services:
     depends_on:
       - db
 
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://flask-app:5000
+    depends_on:
+      - flask-app
+
   db:
     image: postgres:15
     container_name: postgres
