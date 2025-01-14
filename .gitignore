@@ -1,6 +1,25 @@
-venv/
-*.pyc
+# Python-specific
 __pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# Virtual environment
+venv/
+
+# Environment variables
 .env
+
+# Docker-specific
+*.log
+*.pid
+*.seed
+*.pid.lock
+postgres_data/  # Ensure named volume data is excluded if created locally
+
+# VSCode
+.vscode/
+
+# macOS-specific
 .DS_Store
 

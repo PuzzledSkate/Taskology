@@ -20,54 +20,28 @@ Follow these instructions to set up the project locally.
 
 ### Prerequisites
 
-- Python 3.12+
-- PostgreSQL
-- Docker (optional, for containerized setup)
-- Git
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ### Installation
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
-   cd <your-repo-name>
+   git clone https://github.com/PuzzledSkate/Taskology.git
+   cd Taskology
    ```
 
-2. **Set Up a Virtual Environment:**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+2. **Set Up Environment Variables:**
+   Create a .env file in the project root with the following content:
+   ```DATABASE_URL=postgresql://postgres:postgres@db:5432/todo_db
    ```
 
-3. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
+3. **Run the Applicationn with Docker Compose:**
+   ```docker-compose up --build
    ```
 
-4. **Configure Environment Variables:**
-   Create a `.env` file in the project root with the following content:
-   ```env
-   DATABASE_URL=postgresql://<username>:<password>@localhost:5432/todo_db
-   ```
-   Replace `<username>` and `<password>` with your PostgreSQL credentials.
-
-5. **Initialize the Database:**
-   - Start your PostgreSQL server.
-   - Create the database:
-     ```sql
-     CREATE DATABASE todo_db;
-     ```
-   - Run the application to create the tables:
-     ```bash
-     flask run
-     ```
-
-6. **Run the Application:**
-   ```bash
-   flask run
-   ```
-   Access the API at `http://127.0.0.1:5000`.
-
+4. **Access the API:**
+- `http://127.0.0.1:5000`
 ---
 
 ## API Endpoints
@@ -79,29 +53,6 @@ Follow these instructions to set up the project locally.
 | `/todos/<id>`     | PUT    | Update an existing task. |
 | `/todos/<id>`     | DELETE | Delete a task.         |
 | `/health`         | GET    | Check API health.      |
-
----
-
-## Running with Docker
-
-1. **Build the Docker Image:**
-   ```bash
-   docker build -t todo-api .
-   ```
-
-2. **Run the Container:**
-   ```bash
-   docker run -d -p 5000:5000 --name todo-api-container todo-api
-   ```
-
-3. **Access the API:**
-   Visit `http://127.0.0.1:5000`.
-
-4. **Stop the Container:**
-   ```bash
-   docker stop todo-api-container
-   docker rm todo-api-container
-   ```
 
 ---
 
