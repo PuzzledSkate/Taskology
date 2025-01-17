@@ -40,7 +40,7 @@ jobs:
         # Use the branch input or the triggering branch
         BRANCH=${{ github.event.inputs.branch || github.ref_name }}
         TAG=${BRANCH//\//-}  # Replace slashes in branch name with hyphens
-        IMAGE=your-username/taskology:$TAG
+        IMAGE=puzzledskate/taskology:$TAG
 
         # Build and push the Docker image
         docker build -t $IMAGE .
